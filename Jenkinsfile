@@ -24,13 +24,13 @@ pipeline{
         }
         stage('Build and tag'){
             steps{
-                sh 'docker build -t poojabr2016/project-1 .'
+                sh 'docker build -t poojabr2017/project-1 .'
             }
         }
         stage('Containerisation'){
             steps{
                 sh '''
-                docker run -it -d --name c101 -p 9600:8080 poojabr2016/project-1
+                docker run -it -d --name c102 -p 9700:8080 poojabr2017/project-1
                 '''
             }
         }
@@ -45,7 +45,7 @@ pipeline{
         }
          stage('Pushing image to repository'){
             steps{
-                sh 'docker push poojabr2016/project-1'
+                sh 'docker push poojabr2017/project-1'
             }
         }
         
