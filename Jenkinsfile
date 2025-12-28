@@ -30,14 +30,14 @@ pipeline{
         stage('Containerisation'){
             steps{
                 sh '''
-                docker run -it -d --name c12 -p 9003:8080 poojabr2002/project-1
+                docker run -it -d --name c13 -p 9004:8080 poojabr2002/project-1
                 '''
             }
         }
         stage('Login to Docker Hub') {
                     steps {
                         script {
-                            withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+                            withCredentials([usernamePassword(credentialsId: '21docker-hub-credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
                                 sh "echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin"
                             }
                         }
