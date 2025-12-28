@@ -30,7 +30,7 @@ pipeline{
         stage('Containerisation'){
             steps{
                 sh '''
-                docker run -it -d --name c8 -p 9008:8080 manjukolkar007/project-1
+                docker run -it -d --name c8 -p 9008:8080 poojabr2002/project-1
                 '''
             }
         }
@@ -45,7 +45,7 @@ pipeline{
         }
          stage('Pushing image to repository'){
             steps{
-                sh 'docker push manjukolkar007/project-1'
+                sh 'docker push poojabr2002/project-1'
             }
         }
         
